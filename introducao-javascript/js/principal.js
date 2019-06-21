@@ -1,5 +1,5 @@
 var titulo = document.querySelector('.titulo');
-titulo.textContent = 'Café';
+titulo.textContent = 'Aparecida Nutricionaista';
 
 var pacientes = document.querySelectorAll('.paciente');
 
@@ -21,12 +21,14 @@ for(var i = 0; i < pacientes.length; i++) {
         console.log('Peso inválido!');
         pesoValido =  false;
         tdImc.textContent = 'Peso Inválido!';
+        paciente.classList.add('paciente-invalido');
     }
     
     if(altura <= 0 || altura >= 3.00) {
         console.log('Altura inválido!');
         pesoValido =  false;
         tdImc.textContent = 'Altura Inválida!';
+        paciente.classList.add('paciente-invalido');    //Chama stilo do CSS
     }
     
     if (alturaValido && pesoValido) {
@@ -36,3 +38,9 @@ for(var i = 0; i < pacientes.length; i++) {
         tdImc.textContent = imc.toFixed(2);
     }
 }
+
+var botaoAdicionar = document.querySelector('#adicionar-paciente');
+botaoAdicionar.addEventListener('click', function(event){
+    event.preventDefault();
+    console.log('Oi, cliquei no botão');
+})
