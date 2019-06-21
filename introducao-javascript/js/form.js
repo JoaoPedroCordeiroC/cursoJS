@@ -3,7 +3,7 @@ botaoAdicionar.addEventListener('click', function(event){   //Função anonima
     event.preventDefault();                                // Previne o evento padrão do botão   
     
     var form = document.querySelector('#form-adiciona');
-    
+
     // Extraindo informaçoes do pacinete do fomr
     var  paciente = obtemPacienteDoFormulario(form);
 
@@ -12,6 +12,10 @@ botaoAdicionar.addEventListener('click', function(event){   //Função anonima
     //Cria a tr e a td do paciente
     var pacienteTr = montaTr(paciente);
 
+    if(!validaPaciente(paciente)) {
+        console.log('Paciente Inválido');
+        return;
+    }
     //Colocando a linha dentro da tabela
     var tabela = document.querySelector('#tabela-pacientes');
 
@@ -56,4 +60,14 @@ function montaTd(dado,classe) {
     td.classList.add(classe);
 
     return td;
+}
+
+function validaPaciente(paciente) {
+
+    if(validaPeso(paciente.peso)) {
+        return true;
+    } else {
+        return false;
+    }
+
 }
