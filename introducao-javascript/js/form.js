@@ -3,6 +3,7 @@ botaoAdicionar.addEventListener('click', function(event){   //Função anonima
     event.preventDefault();                                // Previne o evento padrão do botão   
     
     var form = document.querySelector('#form-adiciona');
+    
     // Extraindo informaçoes do pacinete do fomr
     var  paciente = obtemPacienteDoFormulario(form);
 
@@ -34,15 +35,18 @@ function obtemPacienteDoFormulario(form) {
 
 function montaTr(paciente) {
 
-    var pacienteTr = document.createElement('tr');  //Cria linha de tabela
+    //Cria TR
+    var pacienteTr = document.createElement('tr');
     pacienteTr.classList.add('paciente');
 
+    //Cria as TD's e a adiciona dentro da TR
     pacienteTr.appendChild( montaTd(paciente.nome, 'info-nome')); 
     pacienteTr.appendChild( montaTd(paciente.peso, 'info-peso'));
     pacienteTr.appendChild( montaTd(paciente.altura, 'info-altura'));
     pacienteTr.appendChild( montaTd(paciente.gordura, 'info-gordura'));
     pacienteTr.appendChild( montaTd(paciente.imc, 'info-imc'));
 
+    //Retorna a TR
     return pacienteTr;
 }
 
