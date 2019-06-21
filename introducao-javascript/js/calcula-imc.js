@@ -32,11 +32,17 @@ for(var i = 0; i < pacientes.length; i++) {
     }
     
     if (alturaValido && pesoValido) {
-        var imc = peso / (altura * altura);
+        var imc = calculaImc(peso,altura);
 
         //Setando valor calculado em JS para campo imc do cliente no HTML
-        tdImc.textContent = imc.toFixed(2);
+        tdImc.textContent = imc;
     }
 }
 
+function calculaImc(peso,altura) {
+    var imc = 0;
 
+    imc = peso  / (altura * altura);
+
+    return imc.toFixed(2);
+}
