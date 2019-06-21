@@ -10,7 +10,15 @@ butaoAdicionar.addEventListener('click', function() {
 
     //Carrega a requisição e mostra a resposta
     xhr.addEventListener('load', function() {
-        console.log(xhr.responseText);
+        var resposta = xhr.responseText;
+        console.log(resposta);
+        console.log(typeof resposta);
+        var pacientes = JSON.parse(resposta);
+       
+        pacientes.forEach(function(paciente) {
+            adicionaPacienteNaTabela(paciente);
+        });
+
     })
 
     //Envia a requisição
